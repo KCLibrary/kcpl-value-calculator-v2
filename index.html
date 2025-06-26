@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Value of Your Library Use</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 10px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    border-radius: 12px; /* rounded corners */
+    overflow: hidden; /* ensures corners apply to inner cells */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* subtle initial shadow */
+    transition: box-shadow 0.3s ease; /* smooth float effect */
+  }
+
+  table:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* float effect on hover */
+  }
+
+  th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+    background-color: white;
+  }
+
+  input[type="text"] {
+    width: 60px;
+  }
+
+  input[type="button"],
+  input[type="reset"] {
+    margin-top: 10px;
+  }
+
+  hr {
+    margin: 10px 0;
+  }
+
+  caption {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+</style>
+
+
+  <script>
+    window.onload = function () {
+      document.calculatorform.reset();
+    };
+
+    function doCalculator() {
+      const f = document.calculatorform;
+      const fields = [
+        ['books', 25.00], ['childrenbooks', 15.00], ['movies', 4.00],
+        ['music', 10], ['audiobooks', 30.00], ['materialsused', 2.00],
+        ['interlibrary', 25.00], ['downloadableab', 25.00], ['downloadableeB', 15.00],
+        ['magazines', 3.00], ['computeruse', 12.00], ['wifisessions', 3.00],
+        ['hotspots', 20.00], ['newspaper', 1.00], ['databaseseraches', 20.00],
+        ['gnenealogy', 20.00], ['programsandcalssses', 10.00], ['onlinetraining', 25.00],
+        ['livetutoring', 40.00], ['reference', 15.00], 
+        ['meetingroooms', 10.00]  // Added meeting room reservations
+      ];
+
+      let total = 0;
+      fields.forEach(([field, value]) => {
+        const count = parseFloat(f[field].value) || 0;
+        const result = count * value;
+        document.getElementById(field + "Result").value = result.toFixed(2);
+        total += result;
+      });
+
+      f.totalResult.value = total.toFixed(2);
+    }
+
+    function popUp(url, name, w, h) {
+      window.open(url, name, `resizable,scrollbars,menubar=0,width=${w},height=${h}`);
+    }
+  </script>
+</head>
+<body>
+
+  <div align="center">
+    <form name="calculatorform" id="calculatorform">
+      <table border="0" cellpadding="0" cellspacing="0" summary="Library use calculator">
+        <caption>Value of Your Library Use</caption>
+        <thead>
+          <tr>
+            <th>Input Your Use</th>
+            <th>Library Materials & Services</th>
+            <th>Value of Your Use</th>
+            <!-- <th><a href="javascript:popUp('valuecalc_costs.html','window',450,575)">Value of Your Use</a></th> -->
+          </tr>
+          <tr><td colspan="3"><hr></td></tr>
+        </thead>
+        <tbody>
+          <!-- Fields inserted here -->
+          <!-- Template rows -->
+          <tr><td><input type="text" name="books" id="books" onchange="doCalculator()"></td><td><label for="books">	Books Borrowed</label></td><td>$<input type="text" id="booksResult" value="0.00" readonly></td></tr>
+          <tr><td><input type="text" name="childrenbooks" id="childrenbooks" onchange="doCalculator()"></td><td><label for="childrenbooks">Children's Books Borrowed</label></td><td>$<input type="text" id="childrenbooksResult" value="0.00" readonly></td></tr>
+          <tr><td><input type="text" name="movies" id="movies" onchange="doCalculator()"></td><td><label for="movies">Movies Borrowed</label></td><td>$<input type="text" id="moviesResult" value="0.00" readonly></td></tr>
+          <tr><td><input type="text" name="music" id="music" onchange="doCalculator()"></td><td><label for="music">Music Borrowed</label></td><td>$<input type="text" id="musicResult" value="0.00" readonly></td></tr>
+          <tr><td><input type="text" name="audiobooks" id="audiobooks" onchange="doCalculator()"></td><td><label for="audiobooks">Audiobooks Borrowed</label></td><td>$<input type="text" id="audiobooksResult" value="0.00" readonly></td></tr>
+          <tr><td><input type="text" name="materialsused" id="materialsused" onchange="doCalculator()"></td><td><label for="materialsused">Materials Used in Library</label></td><td>$<input type="text" id="materialsusedResult" value="0.00" readonly></td></tr>
+          <tr><td><input type="text" name="interlibrary" id="interlibrary" onchange="doCalculator()"></td><td><label for="interlibrary">Interlibrary Loan</label></td><td>$<input type="text" id="interlibraryResult" value="0.00" readonly></td></tr>
+          <tr><td><input type="text" name="downloadableab" id="downloadableab" onchange="doCalculator()"></td><td><label for="downloadableab">Downloadable Audiobooks</label></td><td>$<input type="text" id="downloadableabResult" value="0.00" readonly></td></tr>
+          <tr><td><input type="text" name="downloadableeB" id="downloadableeB" onchange="doCalculator()"></td><td><label for="downloadableeB">Downloadable eBooks</label></td><td>$<input type="text" id="downloadableeBResult" value="0.00" readonly></td></tr>
+          <tr><td><input type="text" name="magazines" id="magazines" onchange="doCalculator()"></td><td><label for="magazines">Downloadable Magazines</label></td><td>$<input type="text" id="magazinesResult" value="0.00" readonly></td></tr>
+          <tr><td><input type="text" name="computeruse" id="computeruse" onchange="doCalculator()"></td><td><label for="computeruse">Hours of Computer Use</label></td><td>$<input type="text" id="computeruseResult" value="0.00" readonly></td></tr>
+          <tr><td><input type="text" name="wifisessions" id="wifisessions" onchange="doCalculator()"></td><td><label for="wifisessions">Wi-Fi Sessions</label></td><td>$<input type="text" id="wifisessionsResult" value="0.00" readonly></td></tr>
+          <tr><td><input type="text" name="hotspots" id="hotspots" onchange="doCalculator()"></td><td><label for="hotspots">Hotspots Borrowed</label></td><td>$<input type="text" id="hotspotsResult" value="0.00" readonly></td></tr>
+          <tr><td><input type="text" name="newspaper" id="newspaper" onchange="doCalculator()"></td><td><label for="newspaper">Newspapers Viewed Online</label></td><td>$<input type="text" id="newspaperResult" value="0.00" readonly></td></tr>
+          <tr><td><input type="text" name="databaseseraches" id="databaseseraches" onchange="doCalculator()"></td><td><label for="databaseseraches">Database Searches</label></td><td>$<input type="text" id="databaseserachesResult" value="0.00" readonly></td></tr>
+          <tr><td><input type="text" name="gnenealogy" id="gnenealogy" onchange="doCalculator()"></td><td><label for="gnenealogy">Genealogy Research Resources</label></td><td>$<input type="text" id="gnenealogyResult" value="0.00" readonly></td></tr>
+          <tr><td><input type="text" name="programsandcalssses" id="programsandcalssses" onchange="doCalculator()"></td><td><label for="programsandcalssses">Programs and Classes Attended</label></td><td>$<input type="text" id="programsandcalsssesResult" value="0.00" readonly></td></tr>
+          <tr><td><input type="text" name="onlinetraining" id="onlinetraining" onchange="doCalculator()"></td><td><label for="onlinetraining">Online Courses and Training</label></td><td>$<input type="text" id="onlinetrainingResult" value="0.00" readonly></td></tr>
+          <tr><td><input type="text" name="livetutoring" id="livetutoring" onchange="doCalculator()"></td><td><label for="livetutoring">Live Internet Tutoring Sessions</label></td><td>$<input type="text" id="livetutoringResult" value="0.00" readonly></td></tr>
+          <tr><td><input type="text" name="reference" id="reference" onchange="doCalculator()"></td><td><label for="reference">Reference Assistance</label></td><td>$<input type="text" id="referenceResult" value="0.00" readonly></td></tr>
+
+          <tr><td><input type="text" name="meetingroooms" id="meetingroooms" onchange="doCalculator()"></td><td><label for="meetingroooms">Meeting Room Reservations</label></td><td>$<input type="text" id="meetingrooomsResult" value="0.00" readonly></td></tr>
+
+
+          <tr><td colspan="3"><hr></td></tr>
+          <tr>
+            <td colspan="2" align="center">
+              <input type="button" value="Calculate The Value of Your Library Use" onclick="doCalculator()">
+              <input type="reset" value="Clear Form">
+            </td>
+            <td>$<input type="text" name="totalResult" id="totalResult" size="5" value="0.00" readonly></td>
+          </tr>
+          <tr><td colspan="3"><hr></td></tr>
+          <tr>
+            <td colspan="3" align="left">
+              This worksheet was adapted from the
+              <a href="http://www.masslib.org" target="_blank">Massachusetts Library Association</a> and
+              <a href="http://www.chelmsfordlibrary.org" target="_blank">Chelmsford Library</a>.
+              <a href="javascript:popUp('valuecalc_costs.html','window',450,575)">How the values were calculated</a>.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+
+</body>
+</html>
