@@ -62,14 +62,14 @@
     function doCalculator() {
       const f = document.calculatorform;
       const fields = [
-        ['books', 25.00], ['childrenbooks', 15.00], ['movies', 4.00],
-        ['music', 10], ['audiobooks', 30.00], ['materialsused', 2.00],
+        ['books', 30.00], ['childrenbooks', 18.00], ['movies', 4.00],
+        ['music', 15.00], ['audiobooks', 30.00], ['materialsused', 2.00],
         ['interlibrary', 25.00], ['downloadableab', 25.00], ['downloadableeB', 15.00],
         ['magazines', 3.00], ['computeruse', 12.00], ['wifisessions', 3.00],
-        ['hotspots', 20.00], ['newspaper', 1.00], ['databaseseraches', 20.00],
-        ['gnenealogy', 20.00], ['programsandcalssses', 10.00], ['onlinetraining', 25.00],
+        ['hotspots', 30.00], ['newspaper', 1.00], ['databaseseraches', 20.00],
+        ['gnenealogy', 22.00], ['programsandcalssses', 10.00], ['onlinetraining', 25.00],
         ['livetutoring', 40.00], ['reference', 15.00], 
-        ['meetingroooms', 10.00]  // Added meeting room reservations
+        ['meetingroooms', 10.00], ['chromebooks', 100.00]  // Added meeting room reservations
       ];
 
       let total = 0;
@@ -126,10 +126,8 @@
           <tr><td><input type="text" name="onlinetraining" id="onlinetraining" onchange="doCalculator()"></td><td><label for="onlinetraining">Online Courses and Training</label></td><td>$<input type="text" id="onlinetrainingResult" value="0.00" readonly></td></tr>
           <tr><td><input type="text" name="livetutoring" id="livetutoring" onchange="doCalculator()"></td><td><label for="livetutoring">Live Internet Tutoring Sessions</label></td><td>$<input type="text" id="livetutoringResult" value="0.00" readonly></td></tr>
           <tr><td><input type="text" name="reference" id="reference" onchange="doCalculator()"></td><td><label for="reference">Reference Assistance</label></td><td>$<input type="text" id="referenceResult" value="0.00" readonly></td></tr>
-
-          <tr><td><input type="text" name="meetingroooms" id="meetingroooms" onchange="doCalculator()"></td><td><label for="meetingroooms">Meeting Room Reservations</label></td><td>$<input type="text" id="meetingrooomsResult" value="0.00" readonly></td></tr>
-
-
+          <tr><td><input type="text" name="meetingroooms" id="meetingroooms" onchange="doCalculator()"></td><td><label for="meetingroooms">Meeting Room Reservations</label></td><td>$<input type="text" id="meetingrooomsResult" value="0.00" readonly></td></tr>      
+          <tr><td><input type="text" name="chromebooks" id="chromebooks" onchange="doCalculator()"></td><td><label for="chromebooks">chromebooks Borrowed</label></td><td>$<input type="text" id="chromebooksResult" value="0.00" readonly></td></tr>
           <tr><td colspan="3"><hr></td></tr>
           <tr>
             <td colspan="2" align="center">
