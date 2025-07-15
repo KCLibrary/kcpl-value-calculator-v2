@@ -7,8 +7,9 @@
   <style>
   body {
     font-family: Arial, sans-serif;
+    font-size: 16px;               /* ↑ larger base font */
     padding: 10px;
-    max-width: 700px;
+    max-width: 800px;              /* ↑ wider container */
     margin: 0 auto;
   }
 
@@ -16,42 +17,49 @@
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #ccc;
-    border-radius: 12px; /* rounded corners */
-    overflow: hidden; /* ensures corners apply to inner cells */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* subtle initial shadow */
-    transition: box-shadow 0.3s ease; /* smooth float effect */
+    border-radius: 12px;           /* rounded corners */
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    font-size: 1em;                /* uses the 16px base */
   }
 
   table:hover {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* float effect on hover */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  caption {
+    font-weight: bold;
+    font-size: 1.5em;              /* ↑ bigger caption */
+    margin-bottom: 10px;
   }
 
   th, td {
     border: 1px solid #ccc;
-    padding: 8px;
+    padding: 12px;                 /* ↑ more padding */
     text-align: left;
     background-color: white;
+    font-size: 1em;
   }
 
   input[type="text"] {
-    width: 60px;
+    width: 80px;                   /* ↑ wider inputs */
+    font-size: 1em;
+    padding: 4px;
   }
 
   input[type="button"],
   input[type="reset"] {
     margin-top: 10px;
+    font-size: 1em;
+    padding: 8px 16px;             /* ↑ larger clickable area */
   }
 
   hr {
     margin: 10px 0;
   }
-
-  caption {
-    font-weight: bold;
-    font-size: 1.2em;
-    margin-bottom: 10px;
-  }
 </style>
+
 
 
   <script>
