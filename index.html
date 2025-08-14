@@ -1,67 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Value of Your Library Use</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <style>
-  body {
-    font-family: Arial, sans-serif;
-    font-size: 16px;               /* ↑ larger base font */
-    padding: 10px;
-    max-width: 800px;              /* ↑ wider container */
-    margin: 0 auto;
-  }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #ccc;
-    border-radius: 12px;           /* rounded corners */
-    overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
-    font-size: 1em;                /* uses the 16px base */
-  }
-
-  table:hover {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  }
-
-  caption {
-    font-weight: bold;
-    font-size: 1.5em;              /* ↑ bigger caption */
-    margin-bottom: 10px;
-  }
-
-  th, td {
-    border: 1px solid #ccc;
-    padding: 12px;                 /* ↑ more padding */
-    text-align: left;
-    background-color: white;
-    font-size: 1em;
-  }
-
-  input[type="text"] {
-    width: 80px;                   /* ↑ wider inputs */
-    font-size: 1em;
-    padding: 4px;
-  }
-
-  input[type="button"],
-  input[type="reset"] {
-    margin-top: 10px;
-    font-size: 1em;
-    padding: 8px 16px;             /* ↑ larger clickable area */
-  }
-
-  hr {
-    margin: 10px 0;
-  }
-</style>
-
-
-
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      padding: 10px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: box-shadow 0.3s ease;
+      font-size: 1em;
+      background: #fff;
+    }
+    table:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+    caption {
+      font-weight: bold;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: left;
+      background-color: white;
+      font-size: 1em;
+    }
+    input[type="text"] {
+      width: 80px;
+      font-size: 1em;
+      padding: 4px;
+    }
+    input[type="button"],
+    input[type="reset"] {
+      margin-top: 10px;
+      font-size: 1em;
+      padding: 8px 16px;
+      cursor: pointer;
+    }
+    hr { margin: 10px 0; }
+  </style>
 
   <script>
     window.onload = function () {
@@ -77,15 +66,17 @@
         ['magazines', 3.00], ['computeruse', 12.00], ['wifisessions', 3.00],
         ['hotspots', 30.00], ['newspaper', 2.00], ['databaseseraches', 30.00],
         ['gnenealogy', 22.00], ['programsandcalssses', 10.00], ['onlinetraining', 25.00],
-        ['livetutoring', 40.00], ['reference', 15.00], 
-        ['meetingroooms', 30.00], ['chromebooks', 100.00]  // Added meeting room reservations
+        ['livetutoring', 40.00], ['reference', 15.00],
+        ['meetingroooms', 30.00], ['chromebooks', 100.00],
+        ['paidspaceusage', 60.00] // ✅ Added Paid Space Usage
       ];
 
       let total = 0;
       fields.forEach(([field, value]) => {
         const count = parseFloat(f[field].value) || 0;
         const result = count * value;
-        document.getElementById(field + "Result").value = result.toFixed(2);
+        const resultEl = document.getElementById(field + "Result");
+        if (resultEl) resultEl.value = result.toFixed(2);
         total += result;
       });
 
@@ -98,7 +89,6 @@
   </script>
 </head>
 <body>
-
   <div align="center">
     <form name="calculatorform" id="calculatorform">
       <table border="0" cellpadding="0" cellspacing="0" summary="Library use calculator">
@@ -108,14 +98,11 @@
             <th>Input Your Use</th>
             <th>Library Materials & Services</th>
             <th>Value of Your Use</th>
-            <!-- <th><a href="javascript:popUp('valuecalc_costs.html','window',450,575)">Value of Your Use</a></th> -->
           </tr>
           <tr><td colspan="3"><hr></td></tr>
         </thead>
         <tbody>
-          <!-- Fields inserted here -->
-          <!-- Template rows -->
-          <tr><td><input type="text" name="books" id="books" onchange="doCalculator()"></td><td><label for="books">	Books Borrowed</label></td><td>$<input type="text" id="booksResult" value="0.00" readonly></td></tr>
+          <tr><td><input type="text" name="books" id="books" onchange="doCalculator()"></td><td><label for="books">Books Borrowed</label></td><td>$<input type="text" id="booksResult" value="0.00" readonly></td></tr>
           <tr><td><input type="text" name="childrenbooks" id="childrenbooks" onchange="doCalculator()"></td><td><label for="childrenbooks">Children's Books Borrowed</label></td><td>$<input type="text" id="childrenbooksResult" value="0.00" readonly></td></tr>
           <tr><td><input type="text" name="movies" id="movies" onchange="doCalculator()"></td><td><label for="movies">Movies Borrowed</label></td><td>$<input type="text" id="moviesResult" value="0.00" readonly></td></tr>
           <tr><td><input type="text" name="music" id="music" onchange="doCalculator()"></td><td><label for="music">Music Borrowed</label></td><td>$<input type="text" id="musicResult" value="0.00" readonly></td></tr>
@@ -135,13 +122,21 @@
           <tr><td><input type="text" name="onlinetraining" id="onlinetraining" onchange="doCalculator()"></td><td><label for="onlinetraining">Online Courses and Training</label></td><td>$<input type="text" id="onlinetrainingResult" value="0.00" readonly></td></tr>
           <tr><td><input type="text" name="livetutoring" id="livetutoring" onchange="doCalculator()"></td><td><label for="livetutoring">Live Internet Tutoring Sessions</label></td><td>$<input type="text" id="livetutoringResult" value="0.00" readonly></td></tr>
           <tr><td><input type="text" name="reference" id="reference" onchange="doCalculator()"></td><td><label for="reference">Reference Assistance</label></td><td>$<input type="text" id="referenceResult" value="0.00" readonly></td></tr>
-          <tr><td><input type="text" name="meetingroooms" id="meetingroooms" onchange="doCalculator()"></td><td><label for="meetingroooms">Meeting Room Reservations</label></td><td>$<input type="text" id="meetingrooomsResult" value="0.00" readonly></td></tr>      
+          <tr><td><input type="text" name="meetingroooms" id="meetingroooms" onchange="doCalculator()"></td><td><label for="meetingroooms">Meeting Room Reservations</label></td><td>$<input type="text" id="meetingrooomsResult" value="0.00" readonly></td></tr>
           <tr><td><input type="text" name="chromebooks" id="chromebooks" onchange="doCalculator()"></td><td><label for="chromebooks">Chromebooks Borrowed</label></td><td>$<input type="text" id="chromebooksResult" value="0.00" readonly></td></tr>
+
+          <!-- ✅ New Paid Space Usage row -->
+          <tr>
+            <td><input type="text" name="paidspaceusage" id="paidspaceusage" onchange="doCalculator()"></td>
+            <td><label for="paidspaceusage">Paid Space Usage (per use @ $60.00)</label></td>
+            <td>$<input type="text" id="paidspaceusageResult" value="0.00" readonly></td>
+          </tr>
+
           <tr><td colspan="3"><hr></td></tr>
           <tr>
             <td colspan="2" align="center">
               <input type="button" value="Calculate The Value of Your Library Use" onclick="doCalculator()">
-              <input type="reset" value="Clear Form">
+              <input type="reset" value="Clear Form" onclick="setTimeout(doCalculator, 0)">
             </td>
             <td>$<input type="text" name="totalResult" id="totalResult" size="5" value="0.00" readonly></td>
           </tr>
@@ -149,8 +144,8 @@
           <tr>
             <td colspan="3" align="left">
               This worksheet was adapted from the
-              <a href="http://www.masslib.org" target="_blank">Massachusetts Library Association</a> and
-              <a href="http://www.chelmsfordlibrary.org" target="_blank">Chelmsford Library</a>.
+              <a href="http://www.masslib.org" target="_blank" rel="noopener">Massachusetts Library Association</a> and
+              <a href="http://www.chelmsfordlibrary.org" target="_blank" rel="noopener">Chelmsford Library</a>.
               <a href="javascript:popUp('valuecalc_costs.html','window',450,575)">How the values were calculated</a>.
             </td>
           </tr>
@@ -158,6 +153,5 @@
       </table>
     </form>
   </div>
-
 </body>
 </html>
